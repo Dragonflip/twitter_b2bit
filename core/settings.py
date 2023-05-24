@@ -42,7 +42,9 @@ THIRD_APPS = [
     'rest_framework',
 ]
 
-OWN_APPS = []
+OWN_APPS = [
+    'user'
+]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + OWN_APPS
 
