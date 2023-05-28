@@ -7,7 +7,6 @@ from rest_framework import permissions
 
 
 class RegisterApi(views.APIView):
-    
     def get(self, request):
         users = User.objects.all()
         serializer = user_serializer.UserSerializer(users, many=True)
@@ -16,7 +15,6 @@ class RegisterApi(views.APIView):
     def post(self, request):
         serializer = user_serializer.UserSerializer(data=request.data)
         if serializer.is_valid():
-
             serializer.save()
 
             return response.Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -43,19 +41,19 @@ class ProfileApi(views.APIView):
 
 
 class TokenApi(views.APIView):
-
     def post(self, request):
         serializer = user_serializer.LoginSerializer(data=request.data)
         if serializer.is_valid():
-
-            username = serializer.validated_data.get('username')
-            password = serializer.validated_data.get('password')
+            username = serializer.validated_data.get("username")
+            password = serializer.validated_data.get("password")
 
             user = authenticate(username=username, password=password)
-            if  user:    
+            if user:
                 token = user_services.create_token(user)
-                resp = response.Response(serializer.data, status=status.HTTP_202_ACCEPTED)
-                resp.set_cookie(key='jwt', value=token)
+                resp = response.Response(
+                    serializer.data, status=status.HTTP_202_ACCEPTED
+                )
+                resp.set_cookie(key="jwt", value=token)
                 return resp
 
         resp = response.Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)

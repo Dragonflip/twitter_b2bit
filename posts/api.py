@@ -11,7 +11,7 @@ class PostApi(views.APIView):
         posts = Post.objects.exclude(owner=request.user.id).all()
         serializer = PostSerializer(posts, many=True)
         return response.Response(serializer.data)
-    
+
     def post(self, request):
         serializer = PostSerializer(data=request.data)
         if serializer.is_valid():
