@@ -139,12 +139,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'core.jwt_authentication.JWTAuthentication',
     ),
 }
 
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
-    'REFRESH_TOKOEN_LIFETIME': timedelta(minutes=60),
-    'SIGNING_KEY': os.environ.get('SECRET_KEY_JWT', 'VERY SECURE PASS')
-}
+JWT_SECRET = 'VERY SECYRE PASS'
