@@ -12,9 +12,10 @@ def new_user():
         last_name="test_user",
         email="test_user",
     )
-    user.set_password('test_user')
+    user.set_password("test_user")
     user.save()
     return user
+
 
 @pytest.fixture
 def new_users():
@@ -26,23 +27,22 @@ def new_users():
             last_name="test_user",
             email="test_user{i}@email.com",
         )
-        user.set_password('test_user')
+        user.set_password("test_user")
         user.save()
         users.append(user)
     return users
+
 
 @pytest.fixture
 def token_user(new_user):
     return create_token(new_user)
 
+
 @pytest.fixture
 def new_posts(new_users):
     posts = []
     for user in new_users:
-        post = Post.objects.create(
-            owner=user,
-            text=f'post from {user.username}'
-        ) 
+        post = Post.objects.create(owner=user, text=f"post from {user.username}")
         posts.append(post)
 
     return posts
