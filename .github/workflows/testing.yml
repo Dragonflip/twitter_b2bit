@@ -10,5 +10,5 @@ jobs:
       - run: pip install pytest-django
       - run: pip install -r requirements.txt # install all our dependencies for the project
       - run: pytest -s -x --cov=core --cov=menu --cov=user -vv
-      - run: black --check
+      - run: black --check .
 
