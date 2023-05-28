@@ -6,7 +6,6 @@ from rest_framework import authentication, exceptions
 
 
 class JWTAuthentication(authentication.BaseAuthentication):
-
     def authenticate(self, request):
         token = self.get_token_from_request(request)
 
@@ -14,25 +13,27 @@ class JWTAuthentication(authentication.BaseAuthentication):
             return None
 
         try:
-            payload = jwt.decode(token, settings.JWT_SECRET, algorithms=['HS256'])
+            payload = jwt.decode(token, settings.JWT_SECRET, algorithms=["HS256"])
         except jwt.DecodeError:
-            raise exceptions.AuthenticationFailed('Invalid Token')
+            raise exceptions.AuthenticationFailed("Invalid Token")
         except jwt.ExpiredSignatureError:
-            raise exceptions.AuthenticationFailed('Expired Token')
+            raise exceptions.AuthenticationFailed("Expired Token")
 
-        id = payload.get('id')
+        id = payload.get("id")
         user = User.objects.filter(id=id).first()
         return (user, token)
-    
+
     def get_token_from_request(self, request):
-        authorization_header = request.headers.get('Authorization')
+        authorization_header = request.headers.get("Authorization")
 
         if authorization_header:
             try:
                 scheme, token = authorization_header.split()
-                if scheme.lower() != 'bearer':
-                    raise exceptions.AuthenticationFailed('Authentication scheme invalid')
+                if scheme.lower() != "bearer":
+                    raise exceptions.AuthenticationFailed(
+                        "Authentication scheme invalid"
+                    )
                 return token
             except ValueError:
-                raise exceptions.AuthenticationFailed('Invalid Token')
+                raise exceptions.AuthenticationFailed("Invalid Token")
         return None
