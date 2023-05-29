@@ -37,25 +37,25 @@ Implementar uma API REST em que um usuário possa realizar um cadastro, publicar
 
 ## **CASO 1: Cadastro de usuário**
 
-O ator faz o cadastro no sistema através da API. Como usuário, ele deve poder fazer o cadastro, para que ele tenha acesso ao Login. Use os campos que achar necessário para a definição do modelo do usuário.
+O ator faz o [cadastro no sistema através da API](http://ec2-3-93-213-249.compute-1.amazonaws.com/user/register/). Como usuário, ele deve poder fazer o cadastro, para que ele tenha acesso ao Login. Use os campos que achar necessário para a definição do modelo do usuário.
 
   
 
 ## **CASO 2: Autenticação (Login)**
 
-O ator deve ser autenticado no sistema através de um Token. Como usuário, ele deve poder fazer login, para que ele tenha acesso ao sistema. Este token deve ter uma data de expiração.
+O ator deve ser [autenticado no sistema através de um Token](http://ec2-3-93-213-249.compute-1.amazonaws.com/user/token/). Como usuário, ele deve poder fazer login, para que ele tenha acesso ao sistema. Este token deve ter uma data de expiração.
 
   
 
 ## **CASO 3: Fazer uma publicação**
 
-O ator cria um post. Esta publicação é persistida no sistema. Como usuário, ele deve poder criar uma publicação, para que possa ser vista por outros usuários do sistema.
+[O ator cria um post](http://ec2-3-93-213-249.compute-1.amazonaws.com/posts/). Esta publicação é persistida no sistema. Como usuário, ele deve poder criar uma publicação, para que possa ser vista por outros usuários do sistema.
 
   
 
 ## **CASO 4: Feed geral**
 
-*   O ator deve receber, no formato JSON, o feed dos últimos 10 posts utilizando paginação.
+*   [O ator deve receber, no formato JSON](http://ec2-3-93-213-249.compute-1.amazonaws.com/posts/), o feed dos últimos 10 posts utilizando paginação.
 
   
 
@@ -73,7 +73,7 @@ O ator cria um post. Esta publicação é persistida no sistema. Como usuário, 
 
 Entregas extras que serão muito bem vistas.
 
-*   Deploy do projeto (colocar em produção);
+*   [Deploy do projeto](http://ec2-3-93-213-249.compute-1.amazonaws.com/posts/) (colocar em produção);
 *   Upload de arquivos estáticos;
 *   Servir arquivos estáticos. Preferencialmente por uma CDN. Indicamos o AWS S3;
 
