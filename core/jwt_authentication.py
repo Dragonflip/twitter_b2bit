@@ -1,6 +1,5 @@
 import jwt
 from django.contrib.auth.models import User
-from datetime import datetime, timedelta
 from django.conf import settings
 from rest_framework import authentication, exceptions
 
