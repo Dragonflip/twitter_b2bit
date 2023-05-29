@@ -9,16 +9,30 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/twitter_api
+      - static:/static
     ports:
       - '8000:8000'
+    restart: always
     environment:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     depends_on:
       - db
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - static:/static
+    ports:
+      - "80:80"
+    restart: always
+    depends_on:
+      - web
+
+volumes:
+  static:
