@@ -39,7 +39,11 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_APPS = ["rest_framework", "rest_framework_simplejwt"]
+THIRD_APPS = [
+    "rest_framework", 
+    "rest_framework_simplejwt",
+    "storages"
+]
 
 OWN_APPS = ["user", "posts"]
 
@@ -139,3 +143,13 @@ REST_FRAMEWORK = {
 }
 
 JWT_SECRET = "VERY SECYRE PASS"
+
+AWS_ACCESS_KEY_ID = 'AKIA4IX2MOEBQDG45JAB'
+AWS_SECRET_ACCESS_KEY = '3BRyDcF+JktDn3MEGdn7ywGUwPkSDNxkxM/rVXV3'
+AWS_STORAGE_BUCKET_NAME = 'django-example'
+AWS_S3_SIGNATURE_NAME = 's3v4',
+AWS_S3_REGION_NAME = 'us-east-1'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL =  None
+AWS_S3_VERITY = True
+STORAGES = {"default": {"BACKEND": "storages.backends.s3boto3.S3Boto3Storage"}}
