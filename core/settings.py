@@ -39,7 +39,7 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_APPS = ["rest_framework", "rest_framework_simplejwt"]
+THIRD_APPS = ["rest_framework", "rest_framework_simplejwt", "storages"]
 
 OWN_APPS = ["user", "posts"]
 
@@ -124,8 +124,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_ROOT = '/static/'
-STATIC_URL = '/static/'
+STATIC_ROOT = "/static/"
+STATIC_URL = "/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -139,3 +139,22 @@ REST_FRAMEWORK = {
 }
 
 JWT_SECRET = "VERY SECYRE PASS"
+
+STATICFILES_LOCATION = "static"
+MEDIAFILES_LOCATION = "media"
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = "django-example"
+AWS_S3_CUSTOM_DOMAIN = "d3nv03piqsdc9v.cloudfront.net"
+STATIC_URL = "https://d3nv03piqsdc9v.cloudfront.net/"
+MEDIA_URL = STATIC_URL + "media/"
+ADMIN_MEDIA_PREFIX = STATIC_URL + "admin/"
+AWS_S3_SIGNATURE_NAME = ("s3v4",)
+AWS_S3_REGION_NAME = "us-east-1"
+AWS_S3_FILE_OVERWRITE = True
+AWS_DEFAULT_ACL = None
+AWS_S3_VERITY = True
+STORAGES = {
+    "default": {"BACKEND": "storages.backends.s3boto3.S3Boto3Storage"},
+    "staticfiles": {"BACKEND": "storages.backends.s3boto3.S3StaticStorage"},
+}
