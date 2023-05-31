@@ -74,8 +74,8 @@ O ator deve ser [autenticado no sistema através de um Token](http://ec2-3-93-21
 Entregas extras que serão muito bem vistas.
 
 *   [Deploy do projeto](http://ec2-3-93-213-249.compute-1.amazonaws.com/posts/) (colocar em produção);
-*   Upload de arquivos estáticos;
-*   Servir arquivos estáticos. Preferencialmente por uma CDN. Indicamos o AWS S3;
+*   Upload de arquivos estáticos (amazon s3);
+*   Servir arquivos estáticos. Preferencialmente por uma CDN. Indicamos o AWS S3 (amazon cloudFront);
 
   
 
