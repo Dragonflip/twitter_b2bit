@@ -2,7 +2,7 @@
 name = "twitter-b2bit"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Joao Paulo"]
 readme = "README.md"
 packages = [{include = "twitter_b2bit"}]
 
@@ -10,20 +10,20 @@ packages = [{include = "twitter_b2bit"}]
 python = "^3.10"
 django = "^4.2.1"
 pillow = "^9.5.0"
-django-stubs = "^4.2.0"
 djangorestframework = "^3.14.0"
 pyjwt = "^2.7.0"
-pyright = "^1.1.309"
 djangorestframework-simplejwt = "^5.2.2"
-pytest-django = "^4.5.2"
-pytest-cov = "^4.1.0"
-black = "^23.3.0"
 psycopg2-binary = "^2.9.6"
 gunicorn = "^20.1.0"
 boto3 = "^1.26.142"
 django-storages = "^1.13.2"
-python-dotenv = "^1.0.0"
 
+[tool.poetry.group.dev.dependencies]
+pyright = "^1.1.309"
+django-stubs = "^4.2.0"
+pytest-django = "^4.5.2"
+pytest-cov = "^4.1.0"
+black = "^23.3.0"
 
 [build-system]
 requires = ["poetry-core"]

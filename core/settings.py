@@ -124,8 +124,8 @@ REST_FRAMEWORK = {
 }
 
 
-s3 = os.getenv("S3")
-if bool(s3):
+aws_storage = os.getenv("AWS_STORAGE")
+if bool(aws_storage):
     STATIC_ROOT = "/static/"
     STATIC_URL = "/static/"
     STATICFILES_LOCATION = "static"
