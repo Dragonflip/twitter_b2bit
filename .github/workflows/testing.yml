@@ -3,6 +3,11 @@ on: [pull_request, push] # activates the workflow when there is a push or pull r
 jobs:
   test_project:
     runs-on: ubuntu-latest # operating system your code will run on
+    env:
+      DB_ENGINE=django.db.backends.sqlite3
+      DB_NAME=db.sqlite3
+      SECRET_KEY=secret
+      JWT_SECRET=secret
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
